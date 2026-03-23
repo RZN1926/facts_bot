@@ -1,0 +1,30 @@
+name: Deploy Facts Bot
+
+on:
+  push:
+    branches:
+      - main  # Убедись, что твоя ветка называется master, а не main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Server via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: 22
+          script: |
+            cd ~/facts_bot
+            git pull origin master
+            # Если используешь виртуальное окружение (venv):
+            # source venv/bin/activate
+            # pip install -r requirements.txt
+            # Перезапуск бота (если настроен systemd):
+            # sudo systemctl restart facts_bot
