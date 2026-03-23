@@ -57,7 +57,7 @@ async def send_facts(app):
         for chat_id in chats:
             if chat_id == -1002932870411:
                 try:
-                    await app.bot.send_message(chat_id=chat_id, text=f"{facts_for_yaica}")
+                    await app.bot.send_message(chat_id=chat_id, text=f"fffff")
                 except Exception as e:
                     print(f"Ошибка отправки в яйца: {e}")
             else:
