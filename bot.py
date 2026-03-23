@@ -46,8 +46,8 @@ async def track_chats(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def send_facts(app):
     while True:
         # Случайный интервал от 30 минут до 5 часов (в секундах)
-        interval = random.randint(1 * 60, 5 * 60 * 60)
-        # interval = random.randint(1, 5)
+        # interval = random.randint(1 * 60, 5 * 60 * 60)
+        interval = random.randint(1, 5)
         await asyncio.sleep(interval)
 
         chats = load_chats()
