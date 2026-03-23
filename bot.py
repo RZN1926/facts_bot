@@ -46,8 +46,8 @@ async def track_chats(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def send_facts(app):
     while True:
         # Случайный интервал от 30 минут до 5 часов (в секундах)
-        # interval = random.randint(1 * 60, 5 * 60 * 60)
-        interval = random.randint(1, 5)
+        interval = random.randint(1 * 60, 5 * 60 * 60)
+        # interval = random.randint(1, 5)
         await asyncio.sleep(interval)
 
         chats = load_chats()
@@ -57,7 +57,7 @@ async def send_facts(app):
         for chat_id in chats:
             if chat_id == -1002932870411:
                 try:
-                    await app.bot.send_message(chat_id=chat_id, text=f"ffв")
+                    await app.bot.send_message(chat_id=chat_id, text=f"{facts_for_yaica}")
                 except Exception as e:
                     print(f"Ошибка отправки в яйца: {e}")
             else:
